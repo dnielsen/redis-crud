@@ -1,0 +1,56 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+		   
+         <div class="data-table">
+		 <div class='clsInfo'>
+			
+			 <a class="a-inside edit" href="/add">Add new Order</a>   
+
+		   </div>
+
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                     <th>Order Id</th>
+					 <th>Customer</th>
+					 <th>UOM</th>
+					 <th>Weight</th>
+					 <th>Description</th>
+                     <th>Status</th>
+                    
+					<th width="175px"></th>
+                </tr>
+                               
+                <% if(data.length){ 
+                                
+                 for(var i = 0;i < data.length;i++) { %>
+                 
+                <tr>
+                    <td><%=data[i].orderId%></td>
+                    <td><%=data[i].customer%></td>
+					<td><%=data[i].uom%></td>
+					<td><%=data[i].weight%></td>
+					<td><%=data[i].desc%></td>
+					<td><%=data[i].status%></td>
+                   
+					
+                   <td>
+                        <a class="a-inside edit" href="edit/<%=i%>">Edit</a>  
+						  <a class="a-inside delete" href="delete/<%=i%>">Delete</a>           
+                    </td>
+                </tr>
+            <% }
+            
+             }else{ %>
+                 <tr>
+                    <td colspan="6">No Data</td>
+                 </tr>
+            <% } %>
+                
+                              
+                
+            </table>
+         </div>
+        </div>
+        
+<%- include layouts/footer.ejs %>

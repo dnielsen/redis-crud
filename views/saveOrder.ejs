@@ -1,0 +1,78 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+         <div>
+		 <div class='clsInfo'>
+			 
+			 <a class="a-inside edit" href="/"><< Back</a>   
+
+		   </div>
+
+		   <form method="post" action="/saveOrder">
+		   <% if(orderId){  %>
+				   <input type='hidden' id='Id' name='Id' value='<%=orderId%>'/>
+            <% 
+			 }else{ %>
+                 <input type='hidden' id='Id' name='Id' value=''/>
+            <% } %>
+
+		   
+            <table style="border-style:none" border="0" cellpadding="7" cellspacing="7" align="center">
+                <tr>
+                  
+                    <td>Order ID</td>
+                    <td>:</td>
+                    
+					<td><input type='text' placeholder=' Order ID' value='<%=data.orderId%>' id='orderId' name='orderId'/></td>
+                </tr>
+                                   
+                <tr>
+                    <td>Customer Name</td>
+                    <td>:</td>
+                    
+					<td><input type='text' value='<%=data.customer%>' placeholder=' Customer Name' id='customer' name='customer'/></td>
+                </tr>
+
+				<tr>
+                    <td>UOM</td>
+                    <td>:</td>
+                    
+					<td>
+					<select style="display:none">
+					  <option value="lbs">lbs</option>
+					  <option value="kg">kg</option>
+					  <option value="grans">grans</option>
+					</select>
+					<input type='text' value='<%=data.uom%>' placeholder=' UOM' id='uom' name='uom'/>
+					
+					</td>
+                </tr>
+
+				<tr>
+                    <td>Weight</td>
+                    <td>:</td>
+                    
+					<td><input type='text' value='<%=data.weight%>' placeholder=' Weight' id='weight' name='weight'/></td>
+                </tr>
+
+				<tr>
+                    <td>Description</td>
+                    <td>:</td>
+                    
+					<td><input type='text' value='<%=data.desc%>' placeholder=' Description' id='desc' name='desc'/></td>
+                </tr>
+               <tr>
+                    <td colspan='3' style="text-align:right">
+					<input type="submit" class="a-inside edit"  value="Save"> 
+					</td>
+                    
+                </tr>
+                              
+                
+            </table>
+
+			 </form>
+         </div>
+        </div>
+        
+<%- include layouts/footer.ejs %>
